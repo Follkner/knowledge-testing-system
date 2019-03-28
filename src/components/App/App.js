@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './App.css';
 import Header from '../Header/Header.jsx';
 import Login from '../Login/Login.jsx';
+import Registration from '../Registration/Registration.jsx';
 import About from '../About/About.jsx';
 import Tests from '../Tests/Tests.jsx';
 
@@ -15,6 +16,7 @@ class App extends Component {
 		      	</div>
 
 		      	 <Route path="/" exact component={Login} />
+		      	 <Route path="/registration" exact component={Registration} />
 		      	 <Route path="/about" exact component={About} />
 		      	 <Route path="/tests" exact component={Tests} />
 		    </Router>
