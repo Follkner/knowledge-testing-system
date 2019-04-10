@@ -8,19 +8,18 @@ import Login from '../Login/Login.jsx';
 import Registration from '../Registration/Registration.jsx';
 import About from '../About/About.jsx';
 import Tests from '../Tests/Tests.jsx';
+import logout from '../../actions/logout.js';
 
 class App extends Component {
   	render() {
 	    return (
 	    	<Router>
 		      	<div className="App">
-		        	<Header isAuthorized = {this.props.isAuthorized}/>
+		        	<Header isAuthorized = {this.props.isAuthorized} logout = {this.props.logout}/>
 		      	</div>
-
 		      	 <Route path="/" exact component={Login} />
 		      	 <Route path="/registration" component={Registration} />
 		      	 <Route path="/about" component={About} />
-		      	 {/*<Route path="/tests" exact component={Tests} />*/}
 		      	 <PrivateRoute authenticated={this.props.isAuthorized} path="/tests" component={Tests} />
 		    </Router>
 	    );
@@ -33,4 +32,12 @@ const mapStateToProps = (state) => {
 	}
 }
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = (dispatch) => { 
+	return {
+		logout: () => {
+			dispatch(logout())
+		}
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

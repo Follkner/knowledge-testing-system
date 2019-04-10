@@ -1,6 +1,6 @@
 import { LOGOUT } from '../constants/actionTypes';
 
-function logout() {
+export default function logout() {
 	return {
 		type: LOGOUT,
 	}
