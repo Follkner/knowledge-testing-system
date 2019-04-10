@@ -31,7 +31,7 @@ class Login extends Component {
 					: null
 				}
 				
-				{isLoading ? <h2>Loading...</h2>: <h2>{message}</h2>}
+				{isLoading ? <h2>Wait, please...</h2>: <h2>{message}</h2>}
 			</div>
 		);
 	}

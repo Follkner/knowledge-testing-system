@@ -7,8 +7,7 @@ export default function login(username, password) {
 		dispatch(request());
 
 		setTimeout(() =>{
-
-			if(password == window.localStorage[username]) {
+			if(password == JSON.parse(window.localStorage.users)[username]) {
 				dispatch(success("Login is successfull"));
 			} else {
 				dispatch(failure("Smth going wrong"));
