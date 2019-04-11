@@ -40,6 +40,7 @@ export default function(state = initialState, action) {
 			return {
 				...state,
 				isAuthorized: false,
+				message: null,
 			}
 
 		default:

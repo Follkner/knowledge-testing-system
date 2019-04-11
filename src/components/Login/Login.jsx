@@ -20,10 +20,10 @@ class Login extends Component {
 		const {isLoading, isAuthorized, message} = this.props;
 
 		return(
-			<div className = "login">
-				<h1>Component 'Login'</h1>
+			<div className = "login">		
 				{!isAuthorized ? 
 					<React.Fragment>
+						<h1>Component 'Login'</h1>
 						<input type = "text" id = "login" autoComplete = "off" placeholder = "Input login"/>
 						<input type = "password" id = "password" autoComplete = "off" placeholder = "Input password"/>
 						<button onClick = {this.handleClick}>Log in</button>

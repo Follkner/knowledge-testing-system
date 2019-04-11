@@ -24,7 +24,8 @@ class App extends Component {
 		      	 <Route path="/" exact component={Login} />
 		      	 <Route path="/registration" component={Registration} />
 		      	 <Route path="/about" component={About} />
-		      	 <PrivateRoute authenticated={this.props.isAuthorized} path="/tests" component={Tests} />
+		      	 {/*<PrivateRoute authenticated={this.props.isAuthorized} path="/tests" component={Tests} />*/}
+		      	 <Route path="/tests" component={Tests} />
 		    </Router>
 	    );
   	}
