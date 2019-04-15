@@ -28,6 +28,7 @@ class App extends Component {
 		      	<PrivateRoute exact authenticated={this.props.isAuthorized} path="/tests" component={Tests} />
 		      	{/*<Route exact path="/tests" component={Tests} />*/}
 				<Route path="/tests/:id" component={FullTest} />
+
 		    </Router>
 	    );
   	}
