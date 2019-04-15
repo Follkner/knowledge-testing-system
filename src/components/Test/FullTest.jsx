@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-class Test extends Component {
+class FullTest extends Component {
 
 	constructor(props) {
 		super(props);
@@ -43,13 +44,24 @@ class Test extends Component {
 
 	render() {
 		return(
+			
 			<div className = "test">
 				<h2>{this.props.title}</h2>
 				{this.createTest()}
-				
+		
 			</div>
+			
 		);
+	}
+
+}
+
+const mapStateToProps = (state) => {
+	return {
+		id: state.testReducer.id,
+		title: state.testReducer.title,
+		tests: state.testReducer.tests,
 	}
 }
 
-export default Test;
+export default connect(mapStateToProps)(FullTest);
