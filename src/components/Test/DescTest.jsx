@@ -30,8 +30,6 @@ class DescTest extends Component {
 		);
 	}
 
-
-
 }
 
 const mapDispatchToProps = (dispatch) => { 
