@@ -117,6 +117,10 @@ class FullTest extends Component {
 			})
 	}
 
+	componentWillUnmount() {
+		clearInterval(this.state.idInterval);
+	}
+
 	render() {
 
 		return(	

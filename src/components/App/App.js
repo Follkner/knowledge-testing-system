@@ -22,12 +22,12 @@ class App extends Component {
 		      	<div className="App">
 		        	<Header isAuthorized = {this.props.isAuthorized} logout = {this.props.logout}/>
 		      	</div>
-		      	<Route exact path="/" exact component={Login} />
+		      	<Route exact path="/login" exact component={Login} />
 		      	<Route path="/registration" component={Registration} />
 		      	<Route path="/about" component={About} />
 		      	<PrivateRoute exact authenticated={this.props.isAuthorized} path="/tests" component={Tests} />
 		      	{/*<Route exact path="/tests" component={Tests} />*/}
-				<Route path="/tests/:id" component={FullTest} />
+				<PrivateRoute authenticated={this.props.isAuthorized} path="/tests/:id" component={FullTest} />
 
 		    </Router>
 	    );
