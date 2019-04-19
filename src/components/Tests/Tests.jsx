@@ -18,6 +18,7 @@ class Tests extends Component {
 		this.displayPages = this.displayPages.bind(this);
 		this.clickOnPage = this.clickOnPage.bind(this);
 		this.searchClick = this.searchClick.bind(this);
+		this.sortData = this.sortData.bind(this);
 	}
 
 	componentDidMount() {
@@ -57,6 +58,30 @@ class Tests extends Component {
 		});
 	}
 
+	sortData(e) {
+		let sortArr;
+		switch(e.target.value) {
+			case "sort1":
+				sortArr = this.state.data.sort((a, b) => {
+					return a.id - b.id;
+				});
+				this.setState({data: sortArr});
+				break;
+			case "sort2":
+				sortArr = this.state.data.sort((a, b) => {
+					return a.tests.length - b.tests.length;
+				});
+				this.setState({data: sortArr});
+				break;
+			case "sort3":
+				sortArr = this.state.data.sort((a, b) => {
+					return b.tests.length - a.tests.length;
+				});
+				this.setState({data: sortArr});
+				break;
+		}
+	}
+
 	render() {
 		const displayDescTests = (arr) => {
 			return arr.slice(this.state.currentPage*TESTS_PER_PAGE, (this.state.currentPage+1)*TESTS_PER_PAGE);
@@ -78,7 +103,11 @@ class Tests extends Component {
 					<input type = "text" placeholder = "Search..." id = "search-input"/>
 					<input type = "submit" value = "Search" id = "search-button" onClick = {this.searchClick}/>
 				</form>
-				
+				<select onChange = {this.sortData}>
+					<option value = "sort1">Sort by order</option>
+					<option value = "sort2">Sort by number of questions (ascending)</option>
+					<option value = "sort3">Sort by number of questions (descending)</option>
+				</select>
 				{descTests}
 				<div className = "pages">
 					{this.displayPages()}
