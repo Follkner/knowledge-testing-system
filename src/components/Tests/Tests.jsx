@@ -12,10 +12,12 @@ class Tests extends Component {
 			data: null,
 			numberOfPages: 0,
 			currentPage: 0,
+			searchText: "",
 		};
 
 		this.displayPages = this.displayPages.bind(this);
 		this.clickOnPage = this.clickOnPage.bind(this);
+		this.searchClick = this.searchClick.bind(this);
 	}
 
 	componentDidMount() {
@@ -25,7 +27,7 @@ class Tests extends Component {
 	}
 
 	clickOnPage(e) {
-		this.setState({currentPage: +e.target.innerHTML-1})
+		this.setState({currentPage: +e.target.innerHTML-1});
 	}
 
 	displayPages() {
@@ -40,21 +42,47 @@ class Tests extends Component {
 		return pages;
 	}
 
+	searchClick(e) {
+		e.preventDefault();
+		let text = document.getElementById('search-input').value.toLowerCase();
+
+		const arr = this.state.data.filter((item) => {
+			return item.title.toLowerCase().includes(text);
+		})
+
+		this.setState({
+			searchText: text, 
+			numberOfPages: arr.length/TESTS_PER_PAGE, 
+			currentPage:0,
+		});
+	}
+
+	sortData() {
+
+	}
+
 	render() {
 		const displayDescTests = (arr) => {
 			return arr.slice(this.state.currentPage*TESTS_PER_PAGE, (this.state.currentPage+1)*TESTS_PER_PAGE);
 		}
 
-		const arr = this.state.data? displayDescTests(this.state.data).map((item, index) => {
-			return (
-				<DescTest key = {item.id} title = {item.title} tests = {item.tests} id = {item.id}/>
-			)
-		}): (<h2>Loading...</h2>);
+		const descTests = this.state.data? 
+			displayDescTests(this.state.data.filter(i=>i.title.toLowerCase().includes(this.state.searchText))).map(
+				(item, index) => {
+					return (
+						<DescTest key = {item.id} title = {item.title} tests = {item.tests} id = {item.id}/>
+					)
+				})
+			: (<h2>Loading...</h2>);
 
 		return(
 			<div className = "tests">
 				<h1>Component 'Tests'</h1>
-				{arr}
+				<form>
+					<input type = "text" placeholder = "Search..." id = "search-input"/>
+					<input type = "submit" value = "Search" id = "search-button" onClick = {this.searchClick}/>
+				</form>
+				{descTests}
 				<div className = "pages">
 					{this.displayPages()}
 				</div>
