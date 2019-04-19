@@ -57,10 +57,6 @@ class Tests extends Component {
 		});
 	}
 
-	sortData() {
-
-	}
-
 	render() {
 		const displayDescTests = (arr) => {
 			return arr.slice(this.state.currentPage*TESTS_PER_PAGE, (this.state.currentPage+1)*TESTS_PER_PAGE);
@@ -82,6 +78,7 @@ class Tests extends Component {
 					<input type = "text" placeholder = "Search..." id = "search-input"/>
 					<input type = "submit" value = "Search" id = "search-button" onClick = {this.searchClick}/>
 				</form>
+				
 				{descTests}
 				<div className = "pages">
 					{this.displayPages()}

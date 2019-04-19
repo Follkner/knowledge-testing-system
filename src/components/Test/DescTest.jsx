@@ -22,10 +22,8 @@ class DescTest extends Component {
 		return(
 			<div className = "descTest">
 				<h2>{this.props.title}</h2>
-				<p>{`Total ${this.props.tests.length} questions`}</p>
-				
+				<p>{`Total ${this.props.tests.length} questions`}</p>	
 				<Link onClick = {this.handleclick} to={`${window.location.pathname}/${this.props.title}`}>Read more</Link>	
-
 			</div>
 		);
 	}

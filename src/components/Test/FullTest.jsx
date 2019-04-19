@@ -20,7 +20,7 @@ class FullTest extends Component {
 			return (
 				<div className = "test" key = {"" + this.props.id + index}>
 					<h3>{item.question}</h3>
-					{(item.correctAnswers.length == 1)? 
+					{(item.type === "radio")? 
 						item.answers.map((item, i) => {
 							return (
 								<div key = {"" + index + i}>
@@ -53,6 +53,10 @@ class FullTest extends Component {
 
 		let time = 0;
 
+		const outputTime =(str) => {
+			return ("0"+str).slice(-2);
+		}
+
 		let interval = setInterval(() => {
 
 			time++;
@@ -61,7 +65,7 @@ class FullTest extends Component {
 			let minutes = Math.floor((time % (60 * 60)) / (60));
 			let seconds = Math.floor(time % 60);
 
-			document.getElementById("timer").innerHTML = `Time: ${hours} : ${minutes} : ${seconds}`;
+			document.getElementById("timer").innerHTML = `Time: ${hours}:${outputTime(minutes)}:${outputTime(seconds)}`;
 
 		}, 1000);
 
@@ -88,12 +92,11 @@ class FullTest extends Component {
 		
 		clearInterval(this.state.idInterval);
 		
-		fetch(`http://localhost:3001/data/${this.props.id}`)
+		fetch(`http://localhost:3001/answers/${this.props.id}`)
 			.then((res) => res.json())
 			.then((data) => {
-				const correctAnswers = data.tests.map((item) => {
-					return item.correctAnswers;
-				})
+				
+				const correctAnswers = data.answers;
 
 				let score = 0;
 
