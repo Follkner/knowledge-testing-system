@@ -23,8 +23,8 @@ class App extends Component {
 		        	<Header isAuthorized = {this.props.isAuthorized} logout = {this.props.logout}/>
 		      	</div>
 		      	<Route exact path="/login" exact component={Login} />
-		      	<Route path="/registration" component={Registration} />
-		      	<Route path="/about" component={About} />
+		      	<Route exact path="/registration" component={Registration} />
+		      	<Route exact path="/about" component={About} />
 		      	<PrivateRoute exact authenticated={this.props.isAuthorized} path="/tests" component={Tests} />
 		      	{/*<Route exact path="/tests" component={Tests} />*/}
 				<PrivateRoute authenticated={this.props.isAuthorized} path="/tests/:id" component={FullTest} />

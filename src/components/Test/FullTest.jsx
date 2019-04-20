@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import BreadCrumbs from '../BreadCrumbs/BreadCrumbs.jsx';
 
 class FullTest extends Component {
 
@@ -128,6 +129,7 @@ class FullTest extends Component {
 
 		return(	
 			<div className = "test-full">
+				<BreadCrumbs/>
 				<h2>{this.props.title}</h2>
 				<div id = "timer"></div>
 				<div id = "results"></div>

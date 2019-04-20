@@ -6,7 +6,7 @@ import {
 } from '../constants/actionTypes';
 
 const initialState = {
-	isAuthorized: false,
+	isAuthorized: true,
 	isLoading: false,
 }
 
