@@ -1,0 +1,53 @@
+.carousel .prev {
+	display: none;
+}
+
+.carousel .slide:first-child {
+	display: block;
+}
+
+.carousel .images {
+	display: flex;
+	justify-content: center;
+}
+
+.slide {
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0s, opacity 0.5s linear;
+	margin: 0 auto;
+}
+
+.slide img {
+	width: 300px;
+	margin: 0 auto;
+}
+
+.slide.active {
+	visibility: visible;
+	opacity: 1;
+	position: absolute;
+}
+
+.carousel {
+	max-width: 500px;
+	margin: 0 auto;
+	position: relative;
+	border: 7px solid black;
+	border-radius: 10px;
+	background: rgba(255, 255, 255, 0.7);
+}
+
+.carousel .arrow {
+	position: absolute;
+	top: 50%;
+	z-index: 10;
+}
+
+.carousel .arrow.prev {
+	left: 0;
+}
+
+.carousel .arrow.next {
+	right: 0;
+}
