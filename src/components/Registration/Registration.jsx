@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import checkIn from '../../actions/registration.js';
+import '../Login/Login.css';
 
 class Registration extends Component {
 
@@ -18,10 +19,10 @@ class Registration extends Component {
 
 	render() {
 		return(
-			<div className = "registration">
-				<h1>Component 'Registration'</h1>
-				<input type = "text" id = "login" autoComplete = "off" placeholder = "Input login"/>
-				<input type = "password" id = "password" autoComplete = "off" placeholder = "Input password"/>
+			<div className = "container login">
+				<h1>You can register by filling out the form</h1>
+				<div><input type = "text" id = "login" autoComplete = "off" placeholder = " Input login"/></div>
+				<div><input type = "password" id = "password" autoComplete = "off" placeholder = " Input password"/></div>
 				<button onClick = {this.handleClick}>To register</button>
 
 				<h3>{this.props.isLoading? <h3>Wait, please...</h3>: null}</h3>

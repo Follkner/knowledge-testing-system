@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import login from '../../actions/login.js';
+import './Login.css';
 
 class Login extends Component {
 
@@ -20,13 +21,13 @@ class Login extends Component {
 		const {isLoading, isAuthorized, message} = this.props;
 
 		return(
-			<div className = "login">		
+			<div className = "container login">		
 				{!isAuthorized ? 
 					<React.Fragment>
-						<h1>Component 'Login'</h1>
-						<input type = "text" id = "login" autoComplete = "off" placeholder = "Input login"/>
-						<input type = "password" id = "password" autoComplete = "off" placeholder = "Input password"/>
-						<button onClick = {this.handleClick}>Log in</button>
+						<h1>You can login if you already have an account.</h1>
+						<div><input type = "text" id = "login" autoComplete = "off" placeholder = "Input login"/></div>
+						<div><input type = "password" id = "password" autoComplete = "off" placeholder = "Input password"/></div>
+						<div><button onClick = {this.handleClick}>Log in</button></div>
 					</React.Fragment> 
 					: null
 				}
