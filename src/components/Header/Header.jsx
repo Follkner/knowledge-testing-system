@@ -9,12 +9,14 @@ class Header extends Component {
 			<div className = "header">
 			{this.props.isAuthorized? 
 				<React.Fragment>
-					<Link to="/about">About</Link>
+					<Link to="/">Main</Link>
 					<Link to="/tests">Tests</Link>
+					<Link to="/contacts">Contacts</Link>
 					<button onClick = {this.props.logout}>Log out</button>
 				</React.Fragment>
 
 				: <React.Fragment>
+					<Link to="/">Main</Link>
 					<Link to="/login">Login</Link>
 					<Link to="/registration">Registration</Link>
 					<Link to="/about">About</Link>

@@ -6,9 +6,10 @@ import './App.css';
 import Header from '../Header/Header.jsx';
 import Login from '../Login/Login.jsx';
 import Registration from '../Registration/Registration.jsx';
-import About from '../About/About.jsx';
+import Contacts from '../Contacts/Contacts.jsx';
 import Tests from '../Tests/Tests.jsx';
 import FullTest from '../Test/FullTest.jsx';
+import Main from '../Main/Main.jsx';
 import logout from '../../actions/logout.js';
 
 class App extends Component {
@@ -22,9 +23,10 @@ class App extends Component {
 		      	<div className="App">
 		        	<Header isAuthorized = {this.props.isAuthorized} logout = {this.props.logout}/>
 		      	</div>
+		      	<Route exact path="/" exact component={Main} />
 		      	<Route exact path="/login" exact component={Login} />
 		      	<Route exact path="/registration" component={Registration} />
-		      	<Route exact path="/about" component={About} />
+		      	<Route exact path="/contacts" component={Contacts} />
 		      	<PrivateRoute exact authenticated={this.props.isAuthorized} path="/tests" component={Tests} />
 		      	{/*<Route exact path="/tests" component={Tests} />*/}
 				<PrivateRoute authenticated={this.props.isAuthorized} path="/tests/:id" component={FullTest} />
