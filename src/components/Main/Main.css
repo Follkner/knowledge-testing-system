@@ -16,6 +16,7 @@
 	opacity: 0;
 	transition: visibility 0s, opacity 0.5s linear;
 	margin: 0 auto;
+	position: absolute;
 }
 
 .slide img {
@@ -31,6 +32,7 @@
 
 .carousel {
 	max-width: 500px;
+	height: 300px;
 	margin: 0 auto;
 	position: relative;
 	border: 7px solid black;
@@ -40,8 +42,14 @@
 
 .carousel .arrow {
 	position: absolute;
-	top: 50%;
+	top: 40%;
 	z-index: 10;
+	border: none;
+	background: none;
+	font-weight: 900;
+	font-size: 40px;
+	user-select: none;
+	outline: none;
 }
 
 .carousel .arrow.prev {

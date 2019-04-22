@@ -13,7 +13,7 @@ class Main extends Component {
 			slides[i].classList.remove("active");
 		}
 
-		if(e.target.innerHTML == "next") {
+		if(e.target.innerHTML == "&gt;") {
 			position++;
 		} else {
 			position--;
@@ -28,7 +28,6 @@ class Main extends Component {
 		}
 
 		slides[position].classList.add("active");
-		slides[position].style.paddingLeft = `-${position*130}px`;
 	}
 
 	render() {
@@ -36,7 +35,7 @@ class Main extends Component {
 			<div className = "container main-component">
 				<h1>Component 'Main'</h1>
 				<div id="carousel" className="carousel">
-					<button className="arrow prev" onClick = {this.slider}>prev</button>
+					<button className="arrow prev" onClick = {this.slider}>{`<`}</button>
 						<ul className="images">
         					<li className = "slide active"><img src="https://js.cx/carousel/1.png"/></li>
         					<li className = "slide"><img src="https://js.cx/carousel/2.png"/></li>
@@ -49,7 +48,7 @@ class Main extends Component {
         					<li className = "slide"><img src="https://js.cx/carousel/9.png"/></li>
         					<li className = "slide"><img src="https://js.cx/carousel/10.png"/></li>
 						</ul>
-					<button className="arrow next" onClick = {this.slider}>next</button>
+					<button className="arrow next" onClick = {this.slider}>></button>
 				</div>
 			</div>
 		);
