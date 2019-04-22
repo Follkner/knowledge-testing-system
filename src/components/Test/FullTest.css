@@ -1,0 +1,43 @@
+.fullTest {
+	color: white;
+	text-shadow: 1px 1px #000, 1px -1px #000, -1px 1px #000, -1px -1px #000, 3px 3px 6px rgba(0,0,0,.5);
+	text-align: center;
+	position: relative;
+	text-align: left;
+}
+
+.fullTest h2 {
+	text-align: center;
+}
+
+#timer {
+	position: absolute;
+	top: 60px;
+	left: 20px;
+}
+
+#results {
+	margin-left: 20px;
+}
+
+.fullTest .test {
+	border: 2px solid black;
+	box-shadow: 0 0 10px 10px gray;
+	background: rgba(94, 94, 94, 0.7);
+	margin: 20px;
+}
+
+.fullTest .test h3 {
+	padding-left: 20px;
+}
+
+.fullTest .test div {
+	padding: 5px 60px;
+}
+
+.fullTest button {
+	width: 100px;
+	margin: 10px 0 30px;
+	margin-left: calc(50% - 50px);
+	cursor: pointer;
+}

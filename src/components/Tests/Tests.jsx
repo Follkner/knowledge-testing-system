@@ -23,6 +23,7 @@ class Tests extends Component {
 	}
 
 	componentDidMount() {
+
 		fetch("http://localhost:3001/data")
 			.then((res) => res.json())
 			.then((data) => this.setState({ data, numberOfPages: Math.ceil(data.length/TESTS_PER_PAGE)}))
@@ -37,8 +38,9 @@ class Tests extends Component {
 	displayPages() {
 		const pages = []
 		for(let i = 0; i < this.state.numberOfPages; i++){
+			let className = !(i===0)? "page" : "page active";
 			pages.push(
-				<div onClick = {this.clickOnPage} key = {i} className = "page">
+				<div onClick = {this.clickOnPage} key = {i} className = {className}>
 					{i+1}
 				</div>
 			)

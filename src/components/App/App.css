@@ -16,17 +16,23 @@ h1 {
 	text-align: center;
 }
 
+h2 {
+	color: white;
+	text-shadow: 1px 1px #000, 1px -1px #000, -1px 1px #000, -1px -1px #000, 3px 3px 6px rgba(0,0,0,.5);
+	text-align: center;
+}
+
 .blurElem {
 	background: linear-gradient(
-          rgba(0, 0, 0, 0.5), 
-          rgba(0, 0, 0, 0.5)
+          rgba(0, 0, 0, 0.7), 
+          rgba(0, 0, 0, 0.7)
         ),
-	url("../../images/background.jpg") no-repeat fixed;
+	url("../../images/background2.jpg") no-repeat fixed;
 	background-size: cover;
 	background-color: gray;
-	filter: blur(10px);
+	filter: blur(5px);
 	width: 100%;
 	min-height: 100vh;
-	position: absolute;
+	position: fixed;
 	z-index: -100;
 }

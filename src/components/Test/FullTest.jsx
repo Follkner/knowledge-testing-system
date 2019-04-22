@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import BreadCrumbs from '../BreadCrumbs/BreadCrumbs.jsx';
+import './FullTest.css';
 
 class FullTest extends Component {
 
@@ -19,15 +20,15 @@ class FullTest extends Component {
 	createTest(){
 		const arr = this.props.tests.map((item, index) => {
 			return (
-				<div className = "test" key = {"" + this.props.id + index}>
+				<div className = "test" key = {`${this.props.id}${index}`}>
 					<h3>{item.question}</h3>
 					{(item.type === "radio")? 
 						item.answers.map((item, i) => {
 							return (
 								<div key = {"" + index + i}>
-									<input type="radio" id={"" + this.props.id + index + i} name={`name${index}`} 
+									<input type="radio" id={`${this.props.id}${index}${i}`} name={`name${index}`} 
 										value = {item}/>
-									<label htmlFor={"" + this.props.id + index + i}>{item}</label>
+									<label htmlFor={`${this.props.id}${index}${i}`}>{item}</label>
 								</div>
 							)
 						})
@@ -35,8 +36,8 @@ class FullTest extends Component {
 						:item.answers.map((item, i) => {
 							return (
 								<div key = {"" + index + i}>
-									<input type="checkbox" id={"" + this.props.id + index + i} name={item}/>
-									<label htmlFor={"" + this.props.id + index + i}>{item}</label>
+									<input type="checkbox" id={`${this.props.id}${index}${i}`} name={item}/>
+									<label htmlFor={`${this.props.id}${index}${i}`}>{item}</label>
 								</div>
 							)
 						})
@@ -51,6 +52,8 @@ class FullTest extends Component {
 
 	startTest() {
 		this.setState({isStart: true});
+
+		document.getElementById("results").innerHTML = "";
 
 		let time = 0;
 
@@ -128,7 +131,7 @@ class FullTest extends Component {
 	render() {
 
 		return(	
-			<div className = "test-full">
+			<div className = "container fullTest">
 				<BreadCrumbs/>
 				<h2>{this.props.title}</h2>
 				<div id = "timer"></div>

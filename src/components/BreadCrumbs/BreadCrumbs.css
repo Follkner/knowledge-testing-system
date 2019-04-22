@@ -8,6 +8,15 @@ ul {
 	display: flex;
 }
 
+ul li a{
+	color: white;
+	text-decoration: none;
+}
+
+.breadCrumbs {
+	margin: 15px;
+}
+
 .breadCrumbs ul li::after {
 	content: " > ";
 }
@@ -15,6 +24,7 @@ ul {
 .breadCrumbs ul li:last-child {
 	pointer-events: none;
 	cursor: default; 
+	text-decoration: underline;
 }
 
 .breadCrumbs ul li:last-child::after {
@@ -22,7 +32,9 @@ ul {
 }
 
 .breadCrumbs .breadCrumb {
-	font-size: 24px;
+	padding: 10px;
+	font-size: 26px;
+	font-weight: 800;
 }
 
 .breadCrumbs ul li:last-child > .breadCrumb {
