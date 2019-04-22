@@ -21,16 +21,16 @@ class App extends Component {
 	    return (
 	    	<Router>
 		      	<div className="App">
+		      		<div className = "blurElem"></div>
 		        	<Header isAuthorized = {this.props.isAuthorized} logout = {this.props.logout}/>
-		      	</div>
-		      	<Route exact path="/" exact component={Main} />
-		      	<Route exact path="/login" exact component={Login} />
-		      	<Route exact path="/registration" component={Registration} />
-		      	<Route exact path="/contacts" component={Contacts} />
-		      	<PrivateRoute exact authenticated={this.props.isAuthorized} path="/tests" component={Tests} />
-		      	{/*<Route exact path="/tests" component={Tests} />*/}
-				<PrivateRoute authenticated={this.props.isAuthorized} path="/tests/:id" component={FullTest} />
-
+		      		<Route exact path="/" exact component={Main} />
+		      		<Route exact path="/login" exact component={Login} />
+		      		<Route exact path="/registration" component={Registration} />
+		      		<Route exact path="/contacts" component={Contacts} />
+					<PrivateRoute exact authenticated={this.props.isAuthorized} path="/tests" component={Tests} />
+					{/*<Route exact path="/tests" component={Tests} />*/}
+					<PrivateRoute authenticated={this.props.isAuthorized} path="/tests/:id" component={FullTest} />
+				</div>
 		    </Router>
 	    );
   	}

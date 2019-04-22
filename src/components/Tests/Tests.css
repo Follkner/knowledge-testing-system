@@ -1,0 +1,36 @@
+.tests {
+	text-shadow: 1px 1px #000, 1px -1px #000, -1px 1px #000, -1px -1px #000, 3px 3px 6px rgba(0,0,0,.5);
+	background: rgba(100, 101, 104, 0.5);
+	border-left: 3px black solid;
+	border-right: 3px black solid;
+	color: white;
+	box-shadow: 0px 0px 20px 10px black;
+}
+
+.tests .container-form {
+	display: flex;
+	justify-content: space-around;
+	padding-bottom: 30px;
+}
+
+.tests .pages {
+	display: flex;
+	justify-content: center;
+}
+
+.tests .pages .page {
+	font-size: 24px;
+	padding: 5px;
+	margin: 10px;
+	border: 2px solid gray;
+	cursor: pointer;
+	background: rgba(0, 0, 0, 0.6);
+}
+
+.tests .pages .page.active {
+	border-color: blue;
+}
+
+.tests h2 {
+	text-align: center;
+}

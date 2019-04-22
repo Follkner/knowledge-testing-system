@@ -1,0 +1,19 @@
+.descTest {
+	text-shadow: 1px 1px #000, 1px -1px #000, -1px 1px #000, -1px -1px #000, 3px 3px 6px rgba(0,0,0,.5);
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-weight: 600;
+	border-bottom: 3px white dashed;
+	padding: 20px;
+	text-align: center;
+	width: 90%;
+	margin: 0 auto;
+}
+
+.descTest a {
+	color: white;
+}
+
+.descTest h2 {
+	padding: 0;
+	margin: 0;
+}

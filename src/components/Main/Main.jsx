@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import './Main.css';
+import slider1 from "../../images/slider1.jpg";
+import slider2 from "../../images/slider2.jpg";
+import slider3 from "../../images/slider3.jpg";
 
 let position = 0;
 
@@ -30,23 +33,20 @@ class Main extends Component {
 		slides[position].classList.add("active");
 	}
 
+	componentWillUnmount() {
+		position = 0;
+	}
+
 	render() {
 		return(
 			<div className = "container main-component">
-				<h1>Component 'Main'</h1>
+				<h1>You can take a test on any available topic and instantly know your result.</h1>
 				<div id="carousel" className="carousel">
 					<button className="arrow prev" onClick = {this.slider}>{`<`}</button>
 						<ul className="images">
-        					<li className = "slide active"><img src="https://js.cx/carousel/1.png"/></li>
-        					<li className = "slide"><img src="https://js.cx/carousel/2.png"/></li>
-        					<li className = "slide"><img src="https://js.cx/carousel/3.png"/></li>
-        					<li className = "slide"><img src="https://js.cx/carousel/4.png"/></li>
-        					<li className = "slide"><img src="https://js.cx/carousel/5.png"/></li>
-        					<li className = "slide"><img src="https://js.cx/carousel/6.png"/></li>
-        					<li className = "slide"><img src="https://js.cx/carousel/7.png"/></li>
-        					<li className = "slide"><img src="https://js.cx/carousel/8.png"/></li>
-        					<li className = "slide"><img src="https://js.cx/carousel/9.png"/></li>
-        					<li className = "slide"><img src="https://js.cx/carousel/10.png"/></li>
+							<li className = "slide active"><img src= {slider1}/></li>
+							<li className = "slide"><img src= {slider2}/></li>
+							<li className = "slide"><img src= {slider3}/></li>
 						</ul>
 					<button className="arrow next" onClick = {this.slider}>></button>
 				</div>

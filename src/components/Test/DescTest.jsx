@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import selectTest from '../../actions/selectTest.js';
+import './DescTest.css';
 
 class DescTest extends Component {
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DescTest from '../Test/DescTest.jsx';
+import './Tests.css';
 
 const TESTS_PER_PAGE = 3;
 
@@ -27,8 +28,10 @@ class Tests extends Component {
 			.then((data) => this.setState({ data, numberOfPages: Math.ceil(data.length/TESTS_PER_PAGE)}))
 	}
 
-	clickOnPage(e) {
-		this.setState({currentPage: +e.target.innerHTML-1});
+	async clickOnPage(e) {
+		document.getElementsByClassName("page")[this.state.currentPage].classList.remove("active");
+		await this.setState({currentPage: +e.target.innerHTML-1});
+		document.getElementsByClassName("page")[this.state.currentPage].classList.add("active");	
 	}
 
 	displayPages() {
@@ -97,18 +100,20 @@ class Tests extends Component {
 			: (<h2>Loading...</h2>);
 
 		return(
-			<div className = "tests">
-				<h1>Component 'Tests'</h1>
-				<form>
-					<input type = "text" placeholder = "Search..." id = "search-input"/>
-					<input type = "submit" value = "Search" id = "search-button" onClick = {this.searchClick}/>
-				</form>
-				<select onChange = {this.sortData}>
-					<option value = "sort1">Sort by order</option>
-					<option value = "sort2">Sort by number of questions (ascending)</option>
-					<option value = "sort3">Sort by number of questions (descending)</option>
-				</select>
-				{descTests}
+			<div className = "container tests">
+				<h1>Available tests</h1>
+				<div className = "container-form">
+					<form>
+						<input type = "text" placeholder = "Search..." id = "search-input"/>
+						<input type = "submit" value = "Search" id = "search-button" onClick = {this.searchClick}/>
+					</form>
+					<select onChange = {this.sortData}>
+						<option value = "sort1">Sort by order</option>
+						<option value = "sort2">Sort by number of questions (ascending)</option>
+						<option value = "sort3">Sort by number of questions (descending)</option>
+					</select>
+				</div>
+				{!(!descTests.length && this.state.searchText)? descTests: <h2>Nothing found</h2>}
 				<div className = "pages">
 					{this.displayPages()}
 				</div>

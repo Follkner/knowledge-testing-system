@@ -1,6 +1,22 @@
 body {
 	padding: 0;
 	margin: 0;
+}
+
+.container {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+h1 {
+	color: white;
+	max-width: 600px;
+	margin: 30px auto;
+	text-shadow: 1px 1px #000, 1px -1px #000, -1px 1px #000, -1px -1px #000, 3px 3px 6px rgba(0,0,0,.5);
+	text-align: center;
+}
+
+.blurElem {
 	background: linear-gradient(
           rgba(0, 0, 0, 0.5), 
           rgba(0, 0, 0, 0.5)
@@ -8,9 +24,9 @@ body {
 	url("../../images/background.jpg") no-repeat fixed;
 	background-size: cover;
 	background-color: gray;
-}
-
-.container {
-	max-width: 1000px;
-	margin: 0 auto;
+	filter: blur(10px);
+	width: 100%;
+	min-height: 100vh;
+	position: absolute;
+	z-index: -100;
 }
