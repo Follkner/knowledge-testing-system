@@ -54,6 +54,7 @@ class FullTest extends Component {
 		this.setState({isStart: true});
 
 		document.getElementById("results").innerHTML = "";
+		document.getElementById("timer").innerHTML = `Time: 0:00:00`;
 
 		let time = 0;
 

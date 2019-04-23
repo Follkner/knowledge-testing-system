@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import DescTest from '../Test/DescTest.jsx';
 import './Tests.css';
 
-const TESTS_PER_PAGE = 3;
+const TESTS_PER_PAGE = 5;
 
 class Tests extends Component {
 
