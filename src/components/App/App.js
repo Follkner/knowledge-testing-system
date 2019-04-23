@@ -14,7 +14,7 @@ import logout from '../../actions/logout.js';
 
 class App extends Component {
 	componentDidMount() {
-		if(!window.localStorage.users) window.localStorage.setItem("users", JSON.stringify({}));
+		if(!window.localStorage.users) window.localStorage.setItem("users", JSON.stringify([]));
 	}
 
   	render() {

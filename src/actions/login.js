@@ -6,14 +6,15 @@ export default function login(username, password) {
 	return dispatch => {
 		dispatch(request());
 
-		setTimeout(() =>{
-			if(password === JSON.parse(window.localStorage.users)[username]) {
-				dispatch(success("Login is successfull"));
-			} else {
-				dispatch(failure("Something going wrong"));
-			}
+		const searchUsername = JSON.parse(window.localStorage.users).filter((item) => {
+			return item.username === username;
+		});
+		if(searchUsername.length && searchUsername[0].password === password) {
+			dispatch(success("Login is successfull"));
+		} else {
+			dispatch(failure("Something going wrong"));
+		}
 
-		},1000)
 	}
 }
 
