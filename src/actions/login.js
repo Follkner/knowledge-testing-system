@@ -7,10 +7,10 @@ export default function login(username, password) {
 		dispatch(request());
 
 		setTimeout(() =>{
-			if(password == JSON.parse(window.localStorage.users)[username]) {
+			if(password === JSON.parse(window.localStorage.users)[username]) {
 				dispatch(success("Login is successfull"));
 			} else {
-				dispatch(failure("Smth going wrong"));
+				dispatch(failure("Something going wrong"));
 			}
 
 		},1000)

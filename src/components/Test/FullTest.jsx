@@ -129,7 +129,6 @@ class FullTest extends Component {
 	}
 
 	render() {
-
 		return(	
 			<div className = "container fullTest">
 				<BreadCrumbs/>
@@ -138,8 +137,7 @@ class FullTest extends Component {
 				<div id = "results"></div>
 				{this.state.isStart? this.createTest(): null}
 				{this.state.isStart? <button onClick = {this.finishTest}>Finish test</button>
-					: <button onClick = {this.startTest}>Start test</button>}
-			
+					: <button onClick = {this.startTest}>Start test</button>}	
 			</div>		
 		);
 	}

@@ -18,6 +18,7 @@ class Registration extends Component {
 	}
 
 	render() {
+		const { isLoading, message } = this.props;
 		return(
 			<div className = "container login">
 				<h1>You can register by filling out the form</h1>
@@ -25,8 +26,8 @@ class Registration extends Component {
 				<div><input type = "password" id = "password" autoComplete = "off" placeholder = " Input password"/></div>
 				<button onClick = {this.handleClick}>To register</button>
 
-				<h3>{this.props.isLoading? <h3>Wait, please...</h3>: null}</h3>
-				<h3>{this.props.message}</h3>
+				<h3>{isLoading? <h3>Wait, please...</h3>: null}</h3>
+				<h3>{message}</h3>
 			</div>
 		);
 	}

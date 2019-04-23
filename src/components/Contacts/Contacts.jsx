@@ -31,7 +31,7 @@ class Contacts extends Component {
 					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2540.634786862565!2d30.449400315615737!3d50.4479029
 					7947504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cc26fd25e1e1%3A0xe9c8486538484580!2z0YPQuy4g0J
 					DQutCw0LTQtdC80LjQutCwINCv0L3Qs9C10LvRjywgMjAsINCa0LjQtdCyLCAwMjAwMA!5e0!3m2!1sru!2sua!4v1550702034868" 
-					frameborder="0"  allowfullscreen>
+					frameBorder="0"  allowFullScreen>
 				</iframe>
 			</div>
 		);
