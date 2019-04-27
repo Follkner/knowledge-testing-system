@@ -50,17 +50,17 @@ class FullTest extends Component {
 		return arr;
 	}
 
+	outputTime(str){
+		return ("0"+str).slice(-2);
+	}
+
 	startTest() {
 		this.setState({isStart: true});
 
 		document.getElementById("results").innerHTML = "";
-		document.getElementById("timer").innerHTML = `Time: 0:00:00`;
+		document.getElementById("timer").innerHTML = `0:00:00`;
 
 		let time = 0;
-
-		const outputTime =(str) => {
-			return ("0"+str).slice(-2);
-		}
 
 		let interval = setInterval(() => {
 
@@ -70,7 +70,7 @@ class FullTest extends Component {
 			let minutes = Math.floor((time % (60 * 60)) / (60));
 			let seconds = Math.floor(time % 60);
 
-			document.getElementById("timer").innerHTML = `Time: ${hours}:${outputTime(minutes)}:${outputTime(seconds)}`;
+			document.getElementById("timer").innerHTML =`${hours}:${this.outputTime(minutes)}:${this.outputTime(seconds)}`;
 
 		}, 1000);
 
@@ -97,7 +97,7 @@ class FullTest extends Component {
 		
 		clearInterval(this.state.idInterval);
 		
-		fetch(`http://localhost:3001/answers/${this.props.id}`)
+		fetch(`http://localhost:3001/answers/${this.props.testId}`)
 			.then((res) => res.json())
 			.then((data) => {
 				
@@ -115,7 +115,31 @@ class FullTest extends Component {
 					}
 				}
 
-				document.getElementById("results").innerHTML = `Your score: ${score} / ${answers.length}`;
+				const d = new Date();
+				const strDate = `
+					${this.outputTime(d.getDate())}.${this.outputTime(d.getMonth()+1)}.${d.getFullYear()} 
+					${this.outputTime(d.getHours())}:${this.outputTime(d.getMinutes())}
+				`;
+				const strScore = `${score} / ${answers.length}`;
+
+				const users = JSON.parse(window.localStorage.users);
+
+				const { userId, testId } = this.props;
+
+				let testResult = users[userId].results[`testId${testId}`];
+
+				if(!users[userId].results[`testId${testId}`]) users[userId].results[`testId${testId}`] = [];
+
+				if(users[userId].results[`testId${testId}`].length > 9) users[userId].results[`testId${testId}`].shift();
+				users[userId].results[`testId${testId}`].push({
+					score: strScore,
+					date: strDate,
+					time: document.getElementById("timer").innerHTML,
+				})
+
+				window.localStorage.setItem("users", JSON.stringify([...users]));
+
+				document.getElementById("results").innerHTML = `Your score: ${strScore}`;
 
 				this.setState({
 					isStart: false,
@@ -147,7 +171,8 @@ class FullTest extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		id: state.testReducer.id,
+		userId: state.loginReducer.id,
+		testId: state.testReducer.id,
 		title: state.testReducer.title,
 		tests: state.testReducer.tests,
 	}

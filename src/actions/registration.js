@@ -2,9 +2,7 @@ import { REGISTRATION_REQUEST } from '../constants/actionTypes';
 import { REGISTRATION_SUCCESS } from '../constants/actionTypes';
 import { REGISTRATION_FAILURE } from '../constants/actionTypes';
 
-let id = 0;
-
-export default function checkIn(username, password) {
+export default function checkIn(username, password, email) {
 	return dispatch => {
 		dispatch(request());
 		const users = JSON.parse(window.localStorage.users);
@@ -17,6 +15,8 @@ export default function checkIn(username, password) {
 				id,
 				username,
 				password,
+				email,
+				results: {},
 			}
 			users.push(user);
 			window.localStorage.setItem("users", JSON.stringify([...users]));

@@ -25,7 +25,8 @@ export default function(state = initialState, action) {
 				...state,
 				isAuthorized: true,
 				isLoading: false,
-				message: action.payload,
+				message: action.payload.message,
+				id: action.payload.id,
 			}
 
 		case LOGIN_FAILURE:
@@ -41,6 +42,7 @@ export default function(state = initialState, action) {
 				...state,
 				isAuthorized: false,
 				message: null,
+				id: null,
 			}
 
 		default:

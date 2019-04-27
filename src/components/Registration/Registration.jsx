@@ -12,9 +12,11 @@ class Registration extends Component {
 
 	handleClick() {
 		let login = document.getElementById("login").value;
+		let email = document.getElementById("email").value;
 		let password = document.getElementById("password").value;
+		let repeatPassword = document.getElementById("repeatPassword").value;
 
-		this.props.checkIn(login, password);
+		this.props.checkIn(login, password, email);
 	}
 
 	render() {
@@ -22,8 +24,10 @@ class Registration extends Component {
 		return(
 			<div className = "container login">
 				<h1>You can register by filling out the form</h1>
-				<div><input type = "text" id = "login" autoComplete = "off" placeholder = " Input login"/></div>
-				<div><input type = "password" id = "password" autoComplete = "off" placeholder = " Input password"/></div>
+				<div><input type = "text" id = "login" autoComplete = "off" placeholder = "Input login"/></div>
+				<div><input type = "email" id = "email" autoComplete = "off" placeholder = "Input email"/></div>
+				<div><input type = "password" id = "password" autoComplete = "off" placeholder = "Input password"/></div>
+				<div><input type = "password" id = "repeatPassword" autoComplete = "off" placeholder = "Repeat password"/></div>
 				<button onClick = {this.handleClick}>To register</button>
 
 				<h3>{isLoading? <h3>Wait, please...</h3>: null}</h3>
@@ -42,8 +46,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => { 
 	return {
-		checkIn: (username, password) => {
-			dispatch(checkIn(username, password))
+		checkIn: (username, password, email) => {
+			dispatch(checkIn(username, password, email))
 		}
 	}
 }
