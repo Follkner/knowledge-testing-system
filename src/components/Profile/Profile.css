@@ -1,0 +1,9 @@
+.profile .testResult {
+	display: flex;
+	justify-content: space-around;
+	border-bottom: 1px solid white;
+}
+
+.profile .testResult > p {
+	min-width: 300px;
+}

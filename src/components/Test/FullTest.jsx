@@ -123,15 +123,15 @@ class FullTest extends Component {
 				const strScore = `${score} / ${answers.length}`;
 
 				const users = JSON.parse(window.localStorage.users);
+				const userResults = JSON.parse(window.localStorage.users).results;
 
-				const { userId, testId } = this.props;
+				const { userId, testId, title } = this.props;
 
-				let testResult = users[userId].results[`testId${testId}`];
+				if(!users[userId].results[`${title}`]) users[userId].results[`${title}`] = [];
 
-				if(!users[userId].results[`testId${testId}`]) users[userId].results[`testId${testId}`] = [];
+				if(users[userId].results[`${title}`].length > 9) users[userId].results[`${title}`].shift();
 
-				if(users[userId].results[`testId${testId}`].length > 9) users[userId].results[`testId${testId}`].shift();
-				users[userId].results[`testId${testId}`].push({
+				users[userId].results[`${title}`].push({
 					score: strScore,
 					date: strDate,
 					time: document.getElementById("timer").innerHTML,
