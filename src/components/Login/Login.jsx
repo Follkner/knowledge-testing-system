@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import login from '../../actions/login.js';
 import './Login.css';
+import { Redirect } from 'react-router-dom';
 
 class Login extends Component {
 
@@ -19,6 +20,8 @@ class Login extends Component {
 
 	render() {
 		const {isLoading, isAuthorized, message} = this.props;
+
+		if(isAuthorized) return <Redirect to='/' />;
 
 		return(
 			<div className = "container login">		

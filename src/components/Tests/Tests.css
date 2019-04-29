@@ -7,6 +7,10 @@
 	box-shadow: 0px 0px 20px 10px black;
 }
 
+.tests h2 {
+	text-align: center;
+}
+
 .tests .container-form {
 	display: flex;
 	justify-content: space-around;
@@ -16,6 +20,7 @@
 .tests .pages {
 	display: flex;
 	justify-content: center;
+	position: relative;
 }
 
 .tests .pages .page {
@@ -31,6 +36,28 @@
 	border-color: blue;
 }
 
-.tests h2 {
-	text-align: center;
+.tests .page-arrow {
+	font-size: 30px;
+	padding-top: 10px;
+	cursor: pointer;
+	position: absolute;
+}
+
+.tests .page-arrow.page-prev {
+	top:5px;
+	left: 30px;
+}
+
+.tests .page-arrow.page-next {
+	top:5px;
+	right: 30px;
+}
+
+.display-none {
+	display: none;
+}
+
+.page-gap {
+	font-size: 30px;
+	padding-top: 5px;
 }

@@ -18,12 +18,12 @@ class Tests extends Component {
 
 		this.displayPages = this.displayPages.bind(this);
 		this.clickOnPage = this.clickOnPage.bind(this);
+		this.clickOnArrow = this.clickOnArrow.bind(this);
 		this.searchClick = this.searchClick.bind(this);
 		this.sortData = this.sortData.bind(this);
 	}
 
 	componentDidMount() {
-
 		fetch("http://localhost:3001/data")
 			.then((res) => res.json())
 			.then((data) => this.setState({ data, numberOfPages: Math.ceil(data.length/TESTS_PER_PAGE)}))
@@ -35,16 +35,49 @@ class Tests extends Component {
 		document.getElementsByClassName("page")[this.state.currentPage].classList.add("active");	
 	}
 
+	async clickOnArrow(e) {
+		document.getElementsByClassName("page")[this.state.currentPage].classList.remove("active");
+		await (e.target.innerHTML === "&gt;") ? 
+			this.setState({currentPage: this.state.currentPage+1}) : this.setState({currentPage: this.state.currentPage-1});
+		document.getElementsByClassName("page")[this.state.currentPage].classList.add("active");	
+
+	}
+
 	displayPages() {
-		const pages = []
+		const pages = [];
+
+		let pos = 0;
 		for(let i = 0; i < this.state.numberOfPages; i++){
 			let className = !(i===0)? "page" : "page active";
+			
+			className += (Math.abs(this.state.currentPage - (i)) < 3 || i===0 
+				|| i===this.state.numberOfPages-1) ? 
+				" page-visible" : " display-none";
+
+			if(i>0 && pages[pos+i-1].props.className.includes("page-visible") 
+			&& className.includes("display-none")) {
+				pos++;
+				pages.push(
+					<div key = {`gap${i}`} className = "page-gap">
+						{`...`}
+					</div>
+				);			
+			}
+
 			pages.push(
 				<div onClick = {this.clickOnPage} key = {i} className = {className}>
 					{i+1}
 				</div>
-			)
+			);
+
 		}
+
+		if(!(this.state.currentPage === 0))
+		pages.push(<div className = "page-arrow page-prev" key = "key-prev" onClick = {this.clickOnArrow}>{`<`}</div>);
+
+		if(!(this.state.currentPage === this.state.numberOfPages-1))
+		pages.push(<div className = "page-arrow page-next" key = "key-next" onClick = {this.clickOnArrow}>></div>)
+
 		return pages;
 	}
 
