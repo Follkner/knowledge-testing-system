@@ -31,3 +31,22 @@
 	max-width: 80%;
 	margin: 0 auto;
 }
+
+.correct {
+	border: 2px solid green;
+}
+
+.incorrect {
+	border: 2px solid red;
+}
+
+.login .active {
+	pointer-events: default;
+	cursor: pointer;
+	background: green;
+}
+
+.login .disable {
+	pointer-events: none;
+	cursor: default;
+}
