@@ -90,42 +90,41 @@ class Main extends Component {
 
 				<div className = "gallery">
 					<div className = "topic">
-						<img src= {img1} alt="photo"/>
+						<img src= {img1} alt="english-topic"/>
 						<h3>English</h3>
 					</div>	
 					<div className = "topic">
-						<img src= {img2} alt="photo"/>
+						<img src= {img2} alt="maths-topic"/>
 						<h3>Maths</h3>
 					</div>	
 					<div className = "topic">
-						<img src= {img3} alt="photo"/>
+						<img src= {img3} alt="programming-topic"/>
 						<h3>Programming</h3>
 					</div>	
 					<div className = "topic">
-						<img src= {img4} alt="photo"/>
+						<img src= {img4} alt="geography-topic"/>
 						<h3>Geography</h3>
 					</div>	
 					<div className = "topic">
-						<img src= {img5} alt="photo"/>
+						<img src= {img5} alt="chemistry-topic"/>
 						<h3>Chemistry</h3>
 					</div>	
 					<div className = "topic">
-						<img src= {img6} alt="photo"/>
+						<img src= {img6} alt="physics-topic"/>
 						<h3>Physics</h3>
 					</div>
 					<div className = "topic">
-						<img src= {img7} alt="photo"/>
+						<img src= {img7} alt="literature-topic"/>
 						<h3>Literature</h3>
 					</div>
 					<div className = "topic">
-						<img src= {img8} alt="photo"/>
+						<img src= {img8} alt="philosophy-topic"/>
 						<h3>Philosophy</h3>
 					</div>
 					<div className = "topic">
-						<img src= {img9} alt="photo"/>
+						<img src= {img9} alt="art-topic"/>
 						<h3>Art</h3>
 					</div>
-
 				</div>
 
 			</div>

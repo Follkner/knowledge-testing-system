@@ -42,7 +42,6 @@ class Profile extends Component {
 	}
 
 	render() {
-		console.log(this.state.data)
 		return(
 			<div className = "container profile">
 				<h1>Your test results</h1>		

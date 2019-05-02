@@ -12,12 +12,35 @@
 .header a {	
 	text-decoration: none;
 	color: white;
-	text-shadow: 2px 2px 2px black;
 }
 
-.header a:hover {
+.header .item:hover {
 	text-decoration: underline;
 }
-.header a img {
+
+.header img {
 	width: 60px;
+	cursor: pointer;
+}
+
+.profile {
+	position: relative;
+}
+
+.dropdown-menu {
+	position: absolute;
+	background: rgba(0,0,0, 0.9);
+	width: 100px;
+	border: 1px gray solid;
+}
+
+.item {
+	color: white;
+	text-shadow: 2px 2px 2px black;
+	cursor: pointer;
+	padding: 5px 15px;
+}
+
+.item:hover {
+	background: blue;
 }
