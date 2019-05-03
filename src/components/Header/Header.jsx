@@ -8,7 +8,7 @@ class Header extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			showMenu: false,
+			showProfileMenu: false,
 		};
 
 		this.onProfileClick = this.onProfileClick.bind(this);
@@ -16,7 +16,7 @@ class Header extends Component {
 	}
 
 	onProfileClick() {
-		this.setState({showMenu: !this.state.showMenu})
+		this.setState({showProfileMenu: !this.state.showProfileMenu})
 	}
 
 	componentDidMount() {
@@ -25,39 +25,69 @@ class Header extends Component {
 
 	componentWillUnmount() {
 		document.removeEventListener('click', this.handleClickOutside, false);
-		this.setState({showMenu: false})
+		this.setState({showProfileMenu: false})
 	}
 
 	handleClickOutside(e) {
 		if(e.target === document.getElementById('profile')) return;
-		this.setState({showMenu: false});
+		if(e.target === document.getElementById('show-menu')) return;
+		if(e.target === document.getElementsByClassName('lines')[0]) return;
+		this.setState({showProfileMenu: false});
+		document.getElementById("show-menu").checked = false;
 	}
 
 	render() {
 		return(
 			<div className = "header">
+
+			<nav className="mobile-menu">
+				<label htmlFor="show-menu" className="show-menu"><div className="lines"></div></label>
+				<input type="checkbox" id="show-menu"/>
+				<ul className="menu-ul">
+				{this.props.isAuthorized? 
+					<React.Fragment>
+					<li><Link to="/">Home</Link></li>
+					<li><Link to="/tests">Tests</Link></li>
+					<li><Link to="/contacts">Contacts</Link></li>
+					<li><Link to ="/profile">Profile</Link></li>
+					<li><div className = "item" onClick = {this.props.logout}>Log out</div></li>
+					</React.Fragment>
+
+					:
+
+					<React.Fragment>
+					<li><Link to="/">Home</Link></li>
+					<li><Link to="/login">Login</Link></li>
+					<li><Link to="/registration">Registration</Link></li>
+					<li><Link to="/contacts">Contacts</Link></li>
+					</React.Fragment>
+
+				}
+				</ul>
+			</nav>
+
 			{this.props.isAuthorized? 
-				<React.Fragment>
+				<nav className = "full-menu">
 					<Link to="/">Home</Link>
 					<Link to="/tests">Tests</Link>
 					<Link to="/contacts">Contacts</Link>
 					<div className = "profile">
 						<img id = "profile" src = {image} onClick = {this.onProfileClick}></img>
-						{this.state.showMenu?
+						{this.state.showProfileMenu?
 						<div className = "dropdown-menu">
 							<div className = "item"><Link to = "/profile">Profile</Link></div>
 							<div className = "item" onClick = {this.props.logout}>Log out</div>
 						</div>
 						: null}
 					</div>
-				</React.Fragment>
+				</nav>
 
-				: <React.Fragment>
+				: <nav className = "full-menu">
 					<Link to="/">Home</Link>
 					<Link to="/login">Login</Link>
 					<Link to="/registration">Registration</Link>
 					<Link to="/contacts">Contacts</Link>
-				</React.Fragment>
+				</nav>
 			}
 			</div>
 		);
