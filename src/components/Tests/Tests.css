@@ -11,6 +11,10 @@
 	text-align: center;
 }
 
+.tests h1 {
+	padding-top: 20px;
+}
+
 .tests .container-form {
 	display: flex;
 	justify-content: space-around;

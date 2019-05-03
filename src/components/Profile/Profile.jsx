@@ -30,7 +30,7 @@ class Profile extends Component {
 			});
 			data.push(<h2 key = {prop}>{prop}</h2>);
 			data.push(
-				<div className = "testResult">
+				<div key = {`Result${data.length}`} className = "testResult">
 					<p>Score</p>
 					<p>Time</p>
 					<p>Date</p>

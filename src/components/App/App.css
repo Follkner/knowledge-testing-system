@@ -3,6 +3,10 @@ body {
 	margin: 0;
 }
 
+.App {
+	padding-top: 60px;
+}
+
 .container {
 	max-width: 1000px;
 	margin: 0 auto;
@@ -31,5 +35,6 @@ h1, h2, p {
 	width: 100%;
 	min-height: 100vh;
 	position: fixed;
+	top: 0;
 	z-index: -100;
 }

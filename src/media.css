@@ -98,12 +98,12 @@
 	.mobile-menu li {
 		display:inline-block;
 		float: left;
-		background: #353535;
+		background: gray;
 		border-bottom: 1px solid #353535;
 		padding: 0;
 	}
 
-	.mobile-menu li a {
+	.mobile-menu li a,  .mobile-menu li div {
 		display:block;
 		min-width:140px;
 		text-align: center;
@@ -112,7 +112,12 @@
 		text-transform:uppercase;
 		background: gray;
 		text-decoration: none;
+		text-shadow: 2px 2px 2px black;
 	  	padding: 10px 0;  
+	}
+
+	.mobile-menu li div {
+		background: #575f6b;
 	}
 
 	.mobile-menu li ul {
@@ -166,4 +171,41 @@
 		display: none;
 	}
 
+	.container.login {
+		max-width: 300px;
+	}
+
+	.contacts iframe {
+		height: 300px;
+	}
+
+	.container.tests .container-form {
+		flex-wrap: wrap;
+		padding: 10px;
+		justify-content: flex-end;
+	}
+
+	.container.tests .container-form select, .container.tests .container-form form {
+		margin: 5px 10px;
+	}
+
+	.container.tests h1 {
+		margin: 0;
+	}
+
+	.container.contacts-container {
+		max-width: 300px;
+	}
+
+	.container.contacts-container .contact {
+		font-size: 16px;
+	}
+
+	.container.contacts-container .contact p {
+		text-align: left;
+	}
+
+	.container.fullTest h2 {
+		margin-top: 40px;
+	}
 }
