@@ -32,6 +32,7 @@
 	background: rgba(0,0,0, 0.9);
 	width: 100px;
 	border: 1px gray solid;
+	z-index: 100;
 }
 
 .item {

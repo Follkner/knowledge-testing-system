@@ -1,0 +1,73 @@
+@media only screen and (min-width: 1024px) {
+
+} 
+
+@media only screen and (max-width: 1024px) {
+	.main-component .text {
+		padding: 0 15px;
+	}
+
+	.main-component .gallery {
+		justify-content: center;
+	}
+
+	.main-component .images .desc {
+		width: 600px;
+		margin-left: calc(50% - 300px);
+	}
+
+	.main-component .gallery .topic {
+		margin: 15px;
+	}
+
+	.container.profile .testResult > p {
+		width: 250px;
+	}
+
+}
+
+@media only screen and (max-width: 768px) { 
+	.main-component .carousel {
+		height: 300px;
+	}
+
+	.main-component .slide img {
+		height: 300px;
+	}
+
+	.main-component .images .desc {
+		width: 400px;
+		margin-left: calc(50% - 200px);
+
+	}
+
+	.container.login {
+		width: 400px;
+		margin-bottom: 20px;
+	}
+
+	.contacts h1 {
+		padding: 0 15px;
+	}
+
+	.tests .container-form {
+		align-items: flex-start;
+	}
+
+	.header .profile .dropdown-menu {
+		width: 90px;
+		left: -5px;
+	}
+
+	.container.fullTest .breadCrumbs ul li {
+		min-width: 90px;
+	}
+
+	.profile .testResult > p {
+
+	}
+}
+
+@media only screen and (max-width: 480px) {
+
+}
