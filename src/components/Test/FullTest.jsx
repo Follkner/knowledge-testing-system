@@ -10,10 +10,13 @@ class FullTest extends Component {
 		this.createTest = this.createTest.bind(this);
 		this.startTest = this.startTest.bind(this);
 		this.finishTest = this.finishTest.bind(this);
+		this.showResults = this.showResults.bind(this);
 
 		this.state = {
 			isStart: false,
+			isFinish: false,
 			idInterval: null,
+			isUpdate: true,
 		}
 	}
 
@@ -55,10 +58,15 @@ class FullTest extends Component {
 	}
 
 	startTest() {
-		this.setState({isStart: true});
+		this.setState({
+			isStart: true,
+			isFinish: false,
+			isUpdate: !this.state.isUpdate,
+		});
 
 		document.getElementById("results").innerHTML = "";
 		document.getElementById("timer").innerHTML = `0:00:00`;
+		document.getElementById("tests-container").style.display = `block`;
 
 		let time = 0;
 
@@ -88,8 +96,9 @@ class FullTest extends Component {
 			});
 
 			const buf = []
+
 			inputs.forEach((item) => {
-				if(item.checked) buf.push(item.nextSibling.innerHTML);
+				buf.push(item);
 			})
 
 			answers.push(buf);
@@ -106,12 +115,23 @@ class FullTest extends Component {
 				let score = 0;
 
 				for(let i = 0; i < answers.length; i++){
-					if(answers[i].length === correctAnswers[i].length){
-						let flag = true;
-						for(let j = 0; j < answers[i].length; j++){
-							if(!(answers[i][j] == correctAnswers[i][j])) flag = false;
+					let index = 0;
+					let flag = true;
+					for(let j = 0; j < answers[i].length; j++) {			
+						if(answers[i][j].nextSibling.innerHTML == correctAnswers[i][index]) {
+							answers[i][j].nextSibling.style.background = "green";
+							index = index + 1;
+							if(!answers[i][j].checked) flag = false;
+						} else if(answers[i][j].checked) {
+							flag = false;
+							answers[i][j].nextSibling.style.background = "red";
 						}
-						if(flag) score++;
+					}
+					if(flag) {
+						score++;
+						answers[i][0].parentNode.parentNode.style.border = "2px solid green";
+					} else {
+						answers[i][0].parentNode.parentNode.style.border = "2px solid red";
 					}
 				}
 
@@ -143,10 +163,18 @@ class FullTest extends Component {
 
 				this.setState({
 					isStart: false,
+					isFinish: true,
 					idInterval: null,
 				});
 
 			})
+
+			document.getElementById("tests-container").style.display = "none";
+	}
+
+	showResults() {
+		const testsContainer = document.getElementById("tests-container");
+		testsContainer.style.display = (testsContainer.style.display === "block") ?  "none" : "block";
 	}
 
 	componentWillUnmount() {
@@ -160,9 +188,14 @@ class FullTest extends Component {
 				<h2>{this.props.title}</h2>
 				<div id = "timer"></div>
 				<div id = "results"></div>
-				{this.state.isStart? this.createTest(): null}
+				{this.state.isFinish? <button onClick = {this.showResults}>Show/hide results</button> : null}
+				<div id = "tests-container">
+					{((this.state.isStart || this.state.isFinish) && this.state.isUpdate)? this.createTest() : null}					
+					{((this.state.isStart || this.state.isFinish) && !this.state.isUpdate)? this.createTest() : null}					
+				</div>
 				{this.state.isStart? <button onClick = {this.finishTest}>Finish test</button>
 					: <button onClick = {this.startTest}>Start test</button>}	
+
 			</div>		
 		);
 	}
