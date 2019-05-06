@@ -117,7 +117,8 @@ class FullTest extends Component {
 				for(let i = 0; i < answers.length; i++){
 					let index = 0;
 					let flag = true;
-					for(let j = 0; j < answers[i].length; j++) {			
+					for(let j = 0; j < answers[i].length; j++) {
+						answers[i][j].disabled = "disabled";
 						if(answers[i][j].nextSibling.innerHTML == correctAnswers[i][index]) {
 							answers[i][j].nextSibling.style.background = "green";
 							index = index + 1;
