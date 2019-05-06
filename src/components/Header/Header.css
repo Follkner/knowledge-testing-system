@@ -67,7 +67,6 @@
 }
 
 .menu li {
-	float: left;
 	position: relative;
 	line-height: 0;
 }
@@ -92,7 +91,7 @@
 	visibility: hidden;
 	position: absolute;
 	top: 50px;
-	left: -10px;
+	left: -5px;
 	z-index: 1000;    
 	border: 1px gray solid;
 	background: rgba(0,0,0, 0.9);

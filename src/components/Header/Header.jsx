@@ -49,6 +49,7 @@ class Header extends Component {
 					<li><Link to="/">Home</Link></li>
 					<li><Link to="/tests">Tests</Link></li>
 					<li><Link to="/contacts">Contacts</Link></li>
+					<li><Link to="/feedback">Feedback</Link></li>
 					<li><Link to ="/profile">Profile</Link></li>
 					<li><div className = "item" onClick = {this.props.logout}>Log out</div></li>
 					</React.Fragment>
@@ -60,6 +61,7 @@ class Header extends Component {
 					<li><Link to="/login">Login</Link></li>
 					<li><Link to="/registration">Registration</Link></li>
 					<li><Link to="/contacts">Contacts</Link></li>
+					<li><Link to="/feedback">Feedback</Link></li>
 					</React.Fragment>
 
 				}
@@ -72,10 +74,10 @@ class Header extends Component {
 					<li><Link to="/">Home</Link></li>
 					<li><Link to="/tests">Tests</Link></li>
 					<li>
-						<div>Contacts</div>
+						<div>Contact us</div>
 						<ul>
 							<li><Link to="/contacts">Contacts</Link></li>
-							<li><Link to="/contacts">Contacts</Link></li>
+							<li><Link to="/feedback">Feedback</Link></li>
 						</ul>
 					</li>
 					<div className = "profile">
@@ -96,10 +98,10 @@ class Header extends Component {
 						<li><Link to="/login">Login</Link></li>
 						<li><Link to="/registration">Registration</Link></li>
 						<li>
-							<Link to="/contacts">Contacts</Link>
+							<div>Contact us</div>
 							<ul>
 								<li><Link to="/contacts">Contacts</Link></li>
-								<li><Link to="/contacts">Contacts</Link></li>
+								<li><Link to="/feedback">Feedback</Link></li>
 							</ul>
 						</li>
 					</ul>

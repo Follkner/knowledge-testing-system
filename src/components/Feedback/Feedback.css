@@ -1,0 +1,37 @@
+.form-feedback {
+	max-width: 400px;
+	display: inline-block;
+	padding: 20px 0 30px;
+	margin: 0 calc(50% - 200px);
+	color: white;
+	font-family: 'Montserrat', sans-serif;
+	border: 2px solid gray;
+	border-radius: 5px;
+	background: rgba(12, 12, 12, 0.5);
+	box-shadow: 0 0 30px 1px white;
+	font-size: 18px;
+}
+
+.form-feedback input, form textarea {
+	margin-top: 5px;
+	display: block;
+	background: none;
+	width: 200px;
+}
+
+.form-feedback div {
+	margin: 15px 100px 0;
+}
+
+.form-feedback input,  .form-feedback textarea{
+	height: 20px;
+	color: white;
+}
+
+.form-feedback textarea {
+	height: 50px;
+}
+
+.form-feedback input[type = "submit"] {
+	height: 25px;
+}

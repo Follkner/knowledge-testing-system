@@ -11,6 +11,7 @@ import Tests from '../Tests/Tests.jsx';
 import FullTest from '../Test/FullTest.jsx';
 import Main from '../Main/Main.jsx';
 import Profile from '../Profile/Profile.jsx';
+import Feedback from '../Feedback/Feedback.jsx';
 import logout from '../../actions/logout.js';
 
 class App extends Component {
@@ -29,6 +30,7 @@ class App extends Component {
 		      		<Route exact path="/login" exact component={Login} />
 		      		<Route exact path="/registration" component={Registration} />
 		      		<Route exact path="/contacts" component={Contacts} />
+		      		<Route exact path="/feedback" component={Feedback} />
 					<PrivateRoute exact authenticated={isAuthorized} path="/tests" component={Tests} />
 					<PrivateRoute exact authenticated={isAuthorized} path="/profile" component={Profile} />
 					<PrivateRoute authenticated={isAuthorized} path="/tests/:id" component={FullTest} />
