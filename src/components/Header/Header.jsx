@@ -68,9 +68,16 @@ class Header extends Component {
 
 			{this.props.isAuthorized? 
 				<nav className = "full-menu">
-					<Link to="/">Home</Link>
-					<Link to="/tests">Tests</Link>
-					<Link to="/contacts">Contacts</Link>
+					<ul className = "menu">
+					<li><Link to="/">Home</Link></li>
+					<li><Link to="/tests">Tests</Link></li>
+					<li>
+						<div>Contacts</div>
+						<ul>
+							<li><Link to="/contacts">Contacts</Link></li>
+							<li><Link to="/contacts">Contacts</Link></li>
+						</ul>
+					</li>
 					<div className = "profile">
 						<img id = "profile" src = {image} onClick = {this.onProfileClick}></img>
 						{this.state.showProfileMenu?
@@ -80,13 +87,22 @@ class Header extends Component {
 						</div>
 						: null}
 					</div>
+					</ul>
 				</nav>
 
 				: <nav className = "full-menu">
-					<Link to="/">Home</Link>
-					<Link to="/login">Login</Link>
-					<Link to="/registration">Registration</Link>
-					<Link to="/contacts">Contacts</Link>
+					<ul className = "menu">
+						<li><Link to="/">Home</Link></li>
+						<li><Link to="/login">Login</Link></li>
+						<li><Link to="/registration">Registration</Link></li>
+						<li>
+							<Link to="/contacts">Contacts</Link>
+							<ul>
+								<li><Link to="/contacts">Contacts</Link></li>
+								<li><Link to="/contacts">Contacts</Link></li>
+							</ul>
+						</li>
+					</ul>
 				</nav>
 			}
 			</div>

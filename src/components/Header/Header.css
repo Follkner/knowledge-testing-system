@@ -57,3 +57,78 @@
 .item:hover {
 	background: blue;
 }
+
+.menu {
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: stretch;
+	height: 60px;
+}
+
+.menu li {
+	float: left;
+	position: relative;
+	line-height: 0;
+}
+
+.menu li a, .menu li div {
+	float: left;
+	height: 25px;
+	padding-top: 30px;
+	color: white;
+}
+
+.menu li:hover > ul {
+	display: block;
+	visibility: visible;
+	opacity: 1;
+}
+
+.menu ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;    
+	visibility: hidden;
+	position: absolute;
+	top: 50px;
+	left: -10px;
+	z-index: 1000;    
+	border: 1px gray solid;
+	background: rgba(0,0,0, 0.9);
+	opacity: 0;
+	transition: opacity 0.5s linear;
+}
+
+.menu ul a {    
+	padding: 10px;
+	height: 10px;
+	height: auto;
+	line-height: 1;
+	display: block;
+	white-space: nowrap;
+	float: none;
+	text-transform: none;
+}
+
+.menu ul a:hover {
+	background: linear-gradient(#04acec,  #0186ba);
+	background: blue;
+	text-decoration: underline;
+}
+
+.menu ul li:first-child > a:after {
+    content: '';
+    position: absolute;
+    left: 40px;
+    top: -8px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 8px solid black;
+}
+
+.menu ul li:first-child a:hover:after {
+    border-bottom-color: blue; 
+}

@@ -25,6 +25,7 @@
 	box-shadow: 0 0 10px 10px gray;
 	background: rgba(94, 94, 94, 0.7);
 	margin: 20px;
+	padding-bottom: 5px;
 }
 
 .fullTest .test h3 {
